@@ -1,8 +1,9 @@
 
 #cls
 
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
+Remove-Item .\Installer\ -Recurse
+New-Item 'Installer' -Type Directory
 
 Set-Location .\Scripts
 $d = Get-ChildItem -File | Get-Item
