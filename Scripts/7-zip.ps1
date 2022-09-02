@@ -1,7 +1,7 @@
-#cls
+cls
 
-$r = iwr https://git-scm.com/download/win
-$m = [regex]::Matches($r, '\<a href\=\"(.+?\.exe)\"')
+$r = iwr https://www.7-zip.org/download.html
+$m = [regex]::Matches($r, '\<A href\=\"(.+?\.msi)\"')
 
 foreach ($i in $m) {
     #$i.Groups[1].Value
@@ -13,4 +13,3 @@ foreach ($i in $m) {
 }
 
 $url
-
