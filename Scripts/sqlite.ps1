@@ -1,4 +1,4 @@
-cls
+#cls
 
 $r = iwr https://www.sqlite.org/download.html
 $m = [regex]::Match($r, "\('a9','(.+?\.zip)'\);")
