@@ -1,15 +1,13 @@
 ﻿#cls
 
-$r = iwr https://www.amd.com/en/support/graphics/radeon-400-series/radeon-rx-400-series/radeon-rx-470
-$m = [regex]::Matches($r, '\"(.+?\.exe)')
-
-foreach ($i in $m) {
-    #$i.Groups[1].Value
-    if ($i.Groups[1].Value -match 'pro\-edition') {
-        $url = $i.Groups[1].Value
-        break
-    }
-}
+Import-Module ..\Modules\Get-UrlDownload.psm1
 
 
-$url
+Get-UrlDownload `
+'https://www.amd.com/en/support/professional-graphics/amd-radeon-pro/amd-radeon-pro-w6000-series/amd-radeon-pro-w6800' `
+'(https\://drivers\.amd\.com/drivers/prographics/.+?\.exe)'
+
+
+
+
+# https://drivers.amd.com/drivers/prographics/amd-software-pro-edition-22.q2-win10-win11-june13.exe

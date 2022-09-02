@@ -1,9 +1,7 @@
 #cls
 
-$r = iwr https://docs.microsoft.com/en-us/java/openjdk/download
+Import-Module ..\Modules\Get-UrlDownload.psm1
 
-$m = [regex]::Matches($r, '\<a href\=\"(.+?x64\.msi)\"')
-$url = $m[0].Groups[1].Value
+Get-UrlDownload 'https://docs.microsoft.com/en-us/java/openjdk/download' '\<a href\=\"(.+?\-x64\.msi)\"'
 
-$url
 

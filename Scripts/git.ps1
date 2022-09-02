@@ -1,16 +1,9 @@
 #cls
 
-$r = iwr https://git-scm.com/download/win
-$m = [regex]::Matches($r, '\<a href\=\"(.+?\.exe)\"')
+Import-Module ..\Modules\Get-UrlDownload.psm1
 
-foreach ($i in $m) {
-    #$i.Groups[1].Value
-    if (($i.Groups[1].Value -imatch '64\-bit') -and ($i.Groups[1].Value -inotmatch 'Portable')) {
-        $url = $i.Groups[1].Value
-        break
-    }
-    
-}
+Get-UrlDownload 'https://git-scm.com/download/win' '\<a href\=\"(.+?\-64\-bit\.exe)'
 
-$url
+
+
 

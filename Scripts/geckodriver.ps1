@@ -1,6 +1,8 @@
-#cls
+cls
 
-$r = iwr https://github.com/mozilla/geckodriver/releases/latest
-$x = $r -match '\<a href\=\"(.+?\-win64\.zip)\"'
-$url = 'https://github.com' + $Matches[1]
-$url
+Import-Module ..\Modules\Get-UrlDownload.psm1
+
+'https://github.com' + (Get-UrlDownload 'https://github.com/mozilla/geckodriver/releases/latest' '\<a href\=\"(.+?\-win64\.zip)')
+
+
+
