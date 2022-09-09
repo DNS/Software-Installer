@@ -1,6 +1,4 @@
-
 #cls
-
 
 Remove-Item .\Installer\ -Recurse
 New-Item 'Installer' -Type Directory
