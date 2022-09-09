@@ -1,7 +1,7 @@
 cls
 
 # Requires PowerShell 7
-#if ($PSVersionTable.PSVersion.Major -lt 7) { Write-Output 'Requires PowerShell 7' ; Exit-PSSession; }
+if ($PSVersionTable.PSVersion.Major -lt 7) { Write-Output 'Requires PowerShell 7' ; Exit-PSSession; }
 
 Remove-Item .\Installer\ -Recurse
 New-Item 'Installer' -Type Directory
