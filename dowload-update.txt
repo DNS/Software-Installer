@@ -1,0 +1,69 @@
+
+driver
+  gpu
+  audio
+  monitor
+
+firefox
+git
+tortoisegit
+ms jdk
+7-zip
+scite
+nginx
+wget
+curl
+ffmpeg
+flac
+winscp
+jdownloader
+aria2c
+lua
+luajit
+upx
+sqlite
+openssl
+imagemagick
+paint .net
+jdownloader2
+winaero
+vscode-system
+ipfs		95MB
+ipfs-kubo	26MB
+
+powershell
+	https://github.com/PowerShell/PowerShell/releases/latest
+	Invoke-Expression "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI -Quiet"
+
+lazarus
+blender
+inkscape
+
+python
+  youtube-dl
+
+wordweb dictionary
+sumatrapdf
+windjview
+
+-------------
+
+ms office
+vmware
+
+adobe
+  photoshop
+  audition
+  premiere pro
+  after effects
+  dreamweaver
+
+autodesk
+  3ds max
+  maya
+  
+libreoffice
+audacity
+godot
+
+
