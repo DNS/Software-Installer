@@ -44,3 +44,13 @@ Set-Location .\Installer
 
 # sqlite
 (Invoke-WebRequest -Uri https://www.sqlite.org/download.html).Links.href | %{ if ($_ -imatch 'sqlite\-tools\-.+?\.zip') {'https://www.sqlite.org/'+$_; break;} } | %{ wget.exe -cnd $_ }
+
+# wget
+(Invoke-WebRequest -Uri https://eternallybored.org/misc/wget/).Links.href | %{ if ($_ -imatch 'wget\.exe') {'https://eternallybored.org/misc/wget/'+$_; break;} } | %{ wget.exe -cnd $_ }
+
+# ffmpeg
+(Invoke-WebRequest -Uri https://github.com/GyanD/codexffmpeg/releases/latest).Links.href | %{ if ($_ -imatch '\-full_build\.7z') {'https://github.com'+$_; break;} } | %{ wget.exe -cnd $_ }
+
+
+
+
