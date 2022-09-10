@@ -1,4 +1,4 @@
-cls
+#cls
 
 # Requires PowerShell 7
 if ($PSVersionTable.PSVersion.Major -lt 7) { Write-Output 'Requires PowerShell 7' ; exit; }
