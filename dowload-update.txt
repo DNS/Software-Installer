@@ -25,11 +25,8 @@ paint .net
 winaero
 
 jdownloader2
-
 aria2c
-lua
-luajit
-upx
+
 vscode-system
 ipfs		95MB
 ipfs-kubo	26MB

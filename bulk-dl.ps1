@@ -74,18 +74,52 @@ https://www.chiark.greenend.org.uk/~sgtatham/putty/
 # Winaero
 'https://winaerotweaker.com/download/' | %{ wget.exe -cnd $_ }
 
+# aria2c
+(Invoke-WebRequest -Uri https://github.com/aria2/aria2/releases/latest).Links.href | %{ if ($_ -imatch 'win\-64bit') {'https://github.com'+$_; break;} } | %{ wget.exe -cnd $_ }
 
 # JDownloader2
 #https://jdownloader.org/download/index
 #(Invoke-WebRequest -Uri https://jdownloader.org/download/index).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 
+# blender
+(Invoke-WebRequest -Uri https://www.blender.org/download/).Links.href | %{ if ($_ -imatch '\-windows\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+
+# lazarus
+(Invoke-WebRequest -Uri https://www.lazarus-ide.org/index.php?page=downloads).Links.href | %{ if ($_ -imatch '\-win64\.exe') {$_; break;} } | %{ wget.exe -cnd $_ }
+
+# inkscape
+#https://inkscape.org/release/
+#https://inkscape.org/release/inkscape-1.2.1/windows/64-bit/msi/dl/
+#(Invoke-WebRequest -Uri https://inkscape.org/release/).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+
+# Krita
+
+
+# Gimp
+
+
+# python
+(Invoke-WebRequest -Uri https://www.python.org/downloads/windows/).Links.href | %{ if ($_ -imatch '\-amd64\.exe') {$_; break;} } | %{ wget.exe -cnd $_ }
+
+# WordWeb
+(Invoke-WebRequest -Uri https://wordweb.info/free/).Links.href | %{ if ($_ -imatch 'wordweb\.exe') {$_; break;} } | %{ wget.exe -cnd $_ }
+
+# Sumatra PDF
+(Invoke-WebRequest -Uri https://www.sumatrapdfreader.org/download-free-pdf-viewer).Links.href | %{ if ($_ -imatch '\-64\-install\.exe') {'https://www.sumatrapdfreader.org'+$_; break;} } | %{ wget.exe -cnd $_ }
+
+# WinDjView
+'https://sourceforge.net/projects/windjview/files/latest/download' | %{ wget.exe -cnd $_ }
+
+# DjVuLibre
+'https://sourceforge.net/projects/djvu/files/latest/download' | %{ wget.exe -cnd $_ }
+
+# libreoffice
+
+
+# audacity
 
 
 
-
-
-
-(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 
@@ -93,9 +127,6 @@ https://www.chiark.greenend.org.uk/~sgtatham/putty/
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
-(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
-(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
-
 
 
 
