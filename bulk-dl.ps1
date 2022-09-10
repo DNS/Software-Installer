@@ -51,6 +51,23 @@ Set-Location .\Installer
 # ffmpeg
 (Invoke-WebRequest -Uri https://github.com/GyanD/codexffmpeg/releases/latest).Links.href | %{ if ($_ -imatch '\-full_build\.7z') {'https://github.com'+$_; break;} } | %{ wget.exe -cnd $_ }
 
+# flac
+https://ftp.osuosl.org/pub/xiph/releases/flac/
+(Invoke-WebRequest -Uri https://ftp.osuosl.org/pub/xiph/releases/flac/).Links.href | Sort-Object -Descending | %{ if ($_ -imatch '\-win\.zip') {$_; break;} } | %{ wget.exe -cnd $_ }
+
+
+
+
+(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+
 
 
 
