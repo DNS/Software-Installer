@@ -37,7 +37,7 @@ Set-Location .\Installer
 (Invoke-WebRequest -Uri 'https://docs.microsoft.com/en-us/java/openjdk/download').Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 # Radeon Pro , # Invoke-WebRequest Bug on PowerShell 7 !!
-#(Invoke-WebRequest -Uri 'https://www.amd.com/en/support/professional-graphics/amd-radeon-pro/amd-radeon-pro-w6000-series/amd-radeon-pro-w6800').Links.href | %{ if ($_ -imatch '\.exe') {$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-WebRequest -Uri 'https://www.amd.com/en/support/professional-graphics/amd-radeon-pro/amd-radeon-pro-w6000-series/amd-radeon-pro-w6800').Links.href | %{ if ($_ -imatch '\.exe') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 # Scite
 (Invoke-WebRequest -Uri https://www.scintilla.org/SciTEDownload.html).Links.href | %{ if ($_ -imatch 'wscite\d+?\.zip') {$_; break;} } | %{ wget.exe -cnd $_ }
@@ -55,10 +55,10 @@ Set-Location .\Installer
 https://ftp.osuosl.org/pub/xiph/releases/flac/
 (Invoke-WebRequest -Uri https://ftp.osuosl.org/pub/xiph/releases/flac/).Links.href | Sort-Object -Descending | %{ if ($_ -imatch '\-win\.zip') {$_; break;} } | %{ wget.exe -cnd $_ }
 
+# WinSCP
+(Invoke-WebRequest -Uri https://winscp.net/eng/download.php).Links.href | %{ if ($_ -imatch '\-Setup\.exe') {'https://winscp.net'+$_; break;} } | %{ wget.exe -cnd $_ }
 
 
-
-(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
