@@ -16,17 +16,20 @@ curl
 ffmpeg
 flac
 winscp
-jdownloader
+
+sqlite
+openssl
+putty
+imagemagick
+paint .net
+winaero
+
+jdownloader2
+
 aria2c
 lua
 luajit
 upx
-sqlite
-openssl
-imagemagick
-paint .net
-jdownloader2
-winaero
 vscode-system
 ipfs		95MB
 ipfs-kubo	26MB
