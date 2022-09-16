@@ -93,6 +93,7 @@ https://www.chiark.greenend.org.uk/~sgtatham/putty/
 #(Invoke-WebRequest -Uri https://inkscape.org/release/).Links.href | %{ if ($_ -imatch '\-x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 # Krita
+(Invoke-WebRequest -Uri https://krita.org/en/download/krita-desktop/).Links.href | %{ if ($_ -imatch 'x64.*?\.exe') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 
 # Gimp
@@ -114,6 +115,8 @@ https://www.chiark.greenend.org.uk/~sgtatham/putty/
 'https://sourceforge.net/projects/djvu/files/latest/download' | %{ wget.exe -cnd $_ }
 
 # libreoffice
+(Invoke-WebRequest -Uri https://www.libreoffice.org/download/download-libreoffice/ -UserAgent '(Windows NT 10.0; Win64; x64; rv:102.0)').Links.href | %{ if ($_ -imatch 'x64\.msi') {$_; break;} } | %{ wget.exe -cnd $_ }
+
 
 
 # audacity
