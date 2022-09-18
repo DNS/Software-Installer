@@ -101,7 +101,7 @@ https://ftp.osuosl.org/pub/xiph/releases/flac/
 # python
 (Invoke-WebRequest -Uri https://www.python.org/downloads/windows/).Links.href | %{ if ($_ -imatch '\-amd64\.exe\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
 
-# WordWeb
+# WordWeb dictionary
 (Invoke-WebRequest -Uri https://wordweb.info/free/).Links.href | %{ if ($_ -imatch 'wordweb\.exe\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 # Sumatra PDF
@@ -116,13 +116,18 @@ https://ftp.osuosl.org/pub/xiph/releases/flac/
 # libreoffice
 (Invoke-WebRequest -Uri https://www.libreoffice.org/download/download-libreoffice/ -UserAgent '(Windows NT 10.0; Win64; x64; rv:102.0)').Links.href | %{ if ($_ -imatch 'x64\.msi\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
 
+# tor browser
+(Invoke-WebRequest -Uri https://www.torproject.org/download/).Links.href | %{ if ($_ -imatch '\.exe\Z') {'https://www.torproject.org'+$_; break;} } | %{ wget.exe -cnd $_ }
 
+# tor expert bundle
+(Invoke-WebRequest -Uri https://www.torproject.org/download/tor/).Links.href | %{ if ($_ -imatch '\.zip\Z') {'https://www.torproject.org'+$_; break;} } | %{ wget.exe -cnd $_ }
 
 # audacity
 
 
 
-(Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
+
+
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 (Invoke-WebRequest -Uri https://www.7-zip.org/download.html).Links.href | %{ if ($_ -imatch '\-x64\.msi\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
