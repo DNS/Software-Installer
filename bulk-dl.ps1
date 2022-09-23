@@ -25,7 +25,7 @@ Set-Location .\Installer
 'https://download.mozilla.org/?product=firefox-esr-next-latest-ssl&os=win64&lang=en-US' | %{ wget.exe -cnd $_ }
 
 # Gecko Driver
-(Invoke-WebRequest -Uri https://github.com/mozilla/geckodriver/releases/latest).Links.href | %{ if ($_ -imatch '\-win64\.zip\Z') {'https://github.com/'+$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-RestMethod -Uri https://api.github.com/repos/mozilla/geckodriver/releases/latest).assets.browser_download_url | %{ if ($_ -imatch 'win64\.zip\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 # Git
 (Invoke-WebRequest -Uri https://git-scm.com/download/win).Links.href | %{ if ($_ -imatch '\-64\-bit\.exe\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
@@ -49,7 +49,7 @@ Set-Location .\Installer
 (Invoke-WebRequest -Uri https://eternallybored.org/misc/wget/).Links.href | %{ if ($_ -imatch 'wget\.exe\Z') {'https://eternallybored.org/misc/wget/'+$_; break;} } | %{ wget.exe -cnd $_ }
 
 # ffmpeg
-(Invoke-WebRequest -Uri https://github.com/GyanD/codexffmpeg/releases/latest).Links.href | %{ if ($_ -imatch '\-full_build\.7z\Z') {'https://github.com'+$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-RestMethod -Uri https://api.github.com/repos/GyanD/codexffmpeg/releases/latest).assets.browser_download_url | %{ if ($_ -imatch '\-full_build\.7z\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 # flac
 (Invoke-WebRequest -Uri https://ftp.osuosl.org/pub/xiph/releases/flac/).Links.href | Sort-Object -Descending | %{ if ($_ -imatch '\-win\.zip\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
@@ -67,14 +67,16 @@ Set-Location .\Installer
 (Invoke-WebRequest -Uri https://imagemagick.org/script/download.php).Links.href | %{ if ($_ -imatch '\-Q16\-x64\-static\.exe\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 # Paint .NET
-(Invoke-WebRequest -Uri https://github.com/paintdotnet/release/releases/latest).Links.href | %{ if ($_ -imatch '\.winmsi\.x64\.zip\Z') {'https://github.com'+$_; break;} } | %{ wget.exe -cnd $_ }
 #paint.net.4.0.Install.exe\Z [/skipConfig | /auto | /createMsi] [PROPERTY=VALUE...]
+(Invoke-RestMethod -Uri https://api.github.com/repos/paintdotnet/release/releases/latest).assets.browser_download_url | %{ if ($_ -imatch '\.winmsi\.x64\.zip\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 # Winaero
 'https://winaerotweaker.com/download/' | %{ wget.exe -cnd $_ }
 
 # aria2c
-(Invoke-WebRequest -Uri https://github.com/aria2/aria2/releases/latest).Links.href | %{ if ($_ -imatch 'win\-64bit') {'https://github.com'+$_; break;} } | %{ wget.exe -cnd $_ }
+(Invoke-RestMethod -Uri https://api.github.com/repos/aria2/aria2/releases/latest).assets.browser_download_url | %{ if ($_ -imatch 'win\-64bit') {$_; break;} } | %{ wget.exe -cnd $_ }
+
+
 
 # JDownloader2
 #https://jdownloader.org/download/index
@@ -123,6 +125,9 @@ Set-Location .\Installer
 
 # audacity
 
+
+# telegram
+(Invoke-RestMethod -Uri https://api.github.com/repos/telegramdesktop/tdesktop/releases/latest).assets.browser_download_url | %{ if ($_ -imatch 'tsetup\-x64.+?\.exe\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
 
 
 
