@@ -45,6 +45,9 @@ Set-Location .\Installer
 # sqlite
 (Invoke-WebRequest -Uri https://www.sqlite.org/download.html).Links.href | %{ if ($_ -imatch 'sqlite\-tools\-.+?\.zip\Z') {'https://www.sqlite.org/'+$_; break;} } | %{ wget.exe -cnd $_ }
 
+# DB Browser for SQLite
+(Invoke-RestMethod -Uri https://api.github.com/repos/sqlitebrowser/sqlitebrowser/releases/latest).assets.browser_download_url | %{ if ($_ -imatch 'win64\.msi\Z') {$_; break;} } | %{ wget.exe -cnd $_ }
+
 # wget
 (Invoke-WebRequest -Uri https://eternallybored.org/misc/wget/).Links.href | %{ if ($_ -imatch 'wget\.exe\Z') {'https://eternallybored.org/misc/wget/'+$_; break;} } | %{ wget.exe -cnd $_ }
 
